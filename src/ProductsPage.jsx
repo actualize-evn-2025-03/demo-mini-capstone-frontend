@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 import { ProductsIndex } from "./ProductsIndex";
 import { ProductsNew } from "./ProductsNew";
 import { Modal } from "./Modal";
@@ -9,6 +10,9 @@ export function ProductsPage() {
   const [products, setProducts] = useState([]);
   const [isProductsShowVisible, setIsProductsShowVisibile] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({});
+  
+  // Get cart functions from the Layout context
+  const { onAddToCart } = useOutletContext();
 
   const handleIndex = () => {
     console.log("handleIndex");
@@ -35,11 +39,11 @@ export function ProductsPage() {
 
   useEffect(handleIndex, []);
 
-  return (
+    return (
     <main>
       <ProductsNew onCreate={handleCreate} />
-      <ProductsIndex products={products} onShow={handleShow} />
-      <Modal show={isProductsShowVisible} onClose={() => setIsProductsShowVisibile} >
+      <ProductsIndex products={products} onShow={handleShow} onAddToCart={onAddToCart} />
+      <Modal show={isProductsShowVisible} onClose={() => setIsProductsShowVisibile(false)} >
         <ProductsShow product={currentProduct} />
       </Modal>
     </main>

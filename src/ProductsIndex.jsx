@@ -1,4 +1,4 @@
-export function ProductsIndex({ products, onShow }) {
+export function ProductsIndex({ products, onShow, onAddToCart }) {
   return (
     <div>
       <h1>All products ({products.length} total)</h1>
@@ -9,6 +9,7 @@ export function ProductsIndex({ products, onShow }) {
           <p>Price: ${product.price}</p>
           <p>Description: {product.description}</p>
           <button onClick={() => onShow(product)}>More info</button>
+          <button onClick={() => onAddToCart(product)}>Add to Cart</button>
         </div>
       ))}
     </div>
