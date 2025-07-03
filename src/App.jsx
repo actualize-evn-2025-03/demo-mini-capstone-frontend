@@ -24,6 +24,9 @@ function Layout() {
   }, []);
 
   // Load cart items when logged in
+  // The [isLoggedIn] dependency means this effect runs whenever isLoggedIn changes
+  // So when user logs in (false -> true), it fetches their cart
+  // When user logs out (true -> false), it runs again but doesn't fetch (because of the if condition)
   useEffect(() => {
     if (isLoggedIn) {
       handleCartIndex();
