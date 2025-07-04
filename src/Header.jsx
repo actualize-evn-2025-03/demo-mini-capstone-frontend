@@ -10,7 +10,7 @@ export function Header({ isLoggedIn, setIsLoggedIn }) {
           <div>
             {isLoggedIn ? (
               <>
-                <Link to="/cart">Cart</Link> | <LogoutLink setIsLoggedIn={setIsLoggedIn} />
+                <Link to="/cart">Cart</Link> | <Link to="/orders">Orders</Link> | <LogoutLink setIsLoggedIn={setIsLoggedIn} />
               </>
             ) : (
               <>

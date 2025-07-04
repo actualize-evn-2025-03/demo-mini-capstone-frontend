@@ -7,6 +7,7 @@ import { ProductsPage } from "./ProductsPage";
 import { SignupPage } from "./SignupPage";
 import { LoginPage } from "./LoginPage";
 import { CartPage } from "./CartPage";
+import { OrdersPage } from "./OrdersPage";
 import { Footer } from "./Footer";
 
 axios.defaults.withCredentials = true;
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <CartPage />,
+      },
+      {
+        path: "/orders",
+        element: <OrdersPage />,
       },
       {
         path: "/signup",
