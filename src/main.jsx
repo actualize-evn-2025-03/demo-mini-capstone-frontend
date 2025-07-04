@@ -6,6 +6,8 @@ import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
+axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://demo-mini-capstone-api-vs8w.onrender.com";
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
