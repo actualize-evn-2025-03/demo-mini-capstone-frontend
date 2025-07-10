@@ -6,7 +6,12 @@ export function ProductsIndex({ products, onShow, onAddToCart }) {
   return (
     <div>
       <h1>All products ({products.length} total)</h1>
-      Search Filter: <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} />
+      Search Filter: <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} list="names" />
+      <datalist id="names">
+        {products.map((product) => (
+          <option key={product.id} value={product.name} />
+        ))}
+      </datalist>
       {products
         .filter((product) => product.name.toLowerCase().includes(searchFilter.toLowerCase()))
         .map((product) => (
